@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen: Telegram & Chrome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons button:hover {
+            background-color: #0056b3;
+        }
+        .split {
+            display: flex;
+            height: calc(100vh - 120px); /* Subtract header and button height */
+        }
+        .panel {
+            flex: 1;
+            border: 1px solid #ddd;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>Split Screen: Telegram (Left) & Chrome (Right)</header>
+    <div class="buttons">
+        <button onclick="loadTelegram()">Open Telegram</button>
+        <button onclick="loadChrome()">Open Chrome</button>
+    </div>
+    <div class="split">
+        <div class="panel" id="telegramPanel">
+            <iframe src=""></iframe>
+        </div>
+        <div class="panel" id="chromePanel">
+            <iframe src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadTelegram() {
+            document.getElementById('telegramPanel').querySelector('iframe').src = 'https://web.telegram.org/';
+        }
+
+        function loadChrome() {
+            document.getElementById('chromePanel').querySelector('iframe').src = 'https://www.google.com/';
+        }
+    </script>
+</body>
+</html>
